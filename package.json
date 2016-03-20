@@ -10,6 +10,7 @@
     ]
   },
   "dependencies": {
+    "chalk": "^1.1.1",
     "inquirer": "^0.12.0",
     "lodash": "^4.6.1"
   },
@@ -20,11 +21,11 @@
     "babel-plugin-transform-object-rest-spread": "^6.6.5",
     "babel-preset-es2015": "^6.6.0",
     "babel-preset-stage-0": "^6.5.0",
+    "del-cli": "^0.2.0",
     "eslint": "^2.4.0",
     "eslint-config-airbnb": "^6.1.0",
     "eslint-plugin-babel": "^3.1.0",
-    "eslint-plugin-react": "^4.2.3",
-    "rimraf": "^2.5.2"
+    "eslint-plugin-react": "^4.2.3"
   },
   "engines": {
     "node": ">=0.12"
@@ -38,8 +39,8 @@
   "main": "dist/lib",
   "repository": "callumlocke/input",
   "scripts": {
-    "build": "rimraf dist && babel src --out-dir dist --source-maps",
-    "build:watch": "rimraf dist && babel src --out-dir dist --source-maps --watch",
+    "build": "del dist && babel src --out-dir dist --source-maps",
+    "build:watch": "del dist && babel src --out-dir dist --source-maps --watch",
     "prepublish": "npm run build"
   }
 }

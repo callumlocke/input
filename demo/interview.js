@@ -30,7 +30,7 @@ async function interview() {
 
   console.log('You typed:', await input.password('\nType a password (not a real one)'));
 
-  console.log('Your answer was', await input.confirm('\nDo you confirm or deny?'));
+  console.log('Your answer was:', await input.confirm('\nDo you confirm or deny?'));
 }
 
 interview();

@@ -1,4 +1,5 @@
 import inquirer from 'inquirer';
+import chalk from 'chalk';
 import { isString, isPlainObject, isArray, isNil, isBoolean, isNumber } from 'lodash';
 import finaliseOptions from './finaliseOptions';
 
@@ -77,7 +78,9 @@ export default function argsTriple(args, defaultLabel, type) {
       if (isString(choice)) realChoice = { name: choice, value: choice };
       else if (isPlainObject(choice)) {
         // quick return for disabled choice
-        if (choice.disabled === true) return new inquirer.Separator(choice.name || ' ');
+        if (choice.disabled === true) return new inquirer.Separator(
+          choice.name ? chalk.grey(choice.name) : ' '
+        );
 
         if (choice.disabled !== undefined && !isBoolean(choice.disabled)) {
           throw new TypeError(
